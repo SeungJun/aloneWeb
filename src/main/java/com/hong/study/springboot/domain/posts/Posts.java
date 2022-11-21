@@ -1,5 +1,6 @@
 package com.hong.study.springboot.domain.posts;
 
+import com.hong.study.springboot.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,7 +16,7 @@ import javax.persistence.*;
 public class Posts extends BaseTimeEntity {
     // 해당 테이블의 PK의 필드를 나타낸다
     @Id
-    // PK의 생성규칙을 나타낸다.
+    // PK의 생성규칙을 나타낸다. id값을 Null값으로하면 DB가 알아서 AUTO_INCREMENT 해준다.
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -34,7 +35,7 @@ public class Posts extends BaseTimeEntity {
         this.author = author;
     }
 
-    public void update(String tilte, String content){
+    public void update(String title, String content){
         this.title = title;
         this.content = content;
     }
